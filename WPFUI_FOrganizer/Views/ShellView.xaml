@@ -8,41 +8,15 @@
         Title="{Binding Path=ShellName, Mode=OneWay}" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/> 
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <CheckBox Content="{Binding Path=OrganizeEverything, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="14"/>
-        <TextBlock Text="Organize selected:" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0"/>
-        <CheckBox Content="{Binding Path=OrganizeDocuments, Mode=OneWay}" Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizePictures, Mode=OneWay}" Grid.Row="4" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeMusic, Mode=OneWay}" Grid.Row="5" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeVideos, Mode=OneWay}" Grid.Row="6" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeExesAndShortcuts, Mode=OneWay}" Grid.Row="7" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeOther, Mode=OneWay}" Grid.Row="8" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeFolders, Mode=OneWay}" Grid.Row="9" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-
-
-
-
+        <ContentControl Grid.Row="1" Grid.Column="1" x:Name="ActiveItem"></ContentControl>
     </Grid>
 </Window>

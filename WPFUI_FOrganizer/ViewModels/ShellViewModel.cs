@@ -7,17 +7,10 @@ using Caliburn.Micro;
 
 namespace WPFUI_FOrganizer.ViewModels
 {
-    public class ShellViewModel : Screen
+    public class ShellViewModel : Conductor<object>
     {
         public string ShellName { get; } = "File Organizer";
-        public string OrganizeEverything { get; } = "Organize everything";
-        public string OrganizeDocuments { get; } = "Documents";
-        public string OrganizePictures { get; } = "Pictures";
-        public string OrganizeMusic { get; } = "Music";
-        public string OrganizeVideos { get; } = "Videos";
-        public string OrganizeExesAndShortcuts { get; } = "Executables and Shortcuts";
-        public string OrganizeOther { get; } = "Other";
-        public string OrganizeFolders { get; } = "Folders";
 
+        public ShellViewModel() => ActivateItem(new FileOrganizerViewModel());
     }
 }
