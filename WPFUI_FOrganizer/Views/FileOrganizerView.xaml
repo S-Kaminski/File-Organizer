@@ -33,12 +33,17 @@
         </Grid.RowDefinitions>
         <CheckBox Content="{Binding Path=OrganizeEverything, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="14"/>
         <TextBlock Text="Organize selected:" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0"/>
-        <CheckBox Content="{Binding Path=OrganizeDocuments, Mode=OneWay}" Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizePictures, Mode=OneWay}" Grid.Row="4" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeMusic, Mode=OneWay}" Grid.Row="5" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeVideos, Mode=OneWay}" Grid.Row="6" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeExesAndShortcuts, Mode=OneWay}" Grid.Row="7" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeOther, Mode=OneWay}" Grid.Row="8" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
-        <CheckBox Content="{Binding Path=OrganizeFolders, Mode=OneWay}" Grid.Row="9" Grid.Column="1" Margin="10,0,0,0" FontSize="14"/>
+       
+
+        
+        <ListBox ItemsSource="{Binding Path=Organizer}" Grid.Row="10" Grid.Column="1" BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <CheckBox IsEnabled="{Binding Path=CanClick}" IsChecked="{Binding Path=IsSelected,Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
+                   
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
     </Grid>
 </UserControl>
