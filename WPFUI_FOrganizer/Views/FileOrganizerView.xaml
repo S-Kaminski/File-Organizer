@@ -28,22 +28,30 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <CheckBox Content="{Binding Path=OrganizeEverything, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="14"/>
         <TextBlock Text="Organize selected:" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0"/>
-       
 
-        
+        <!-- ChceckBoxes with Organizating Types -->
         <ListBox ItemsSource="{Binding Path=Organizer}" Grid.Row="10" Grid.Column="1" BorderThickness="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                   <CheckBox IsEnabled="{Binding Path=CanClick}" IsChecked="{Binding Path=IsSelected,Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
-                   
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TextBox Name="SelectedTypes" Grid.Row="11" Grid.Column="1" />
+        <Button Name="Organize" Grid.Row="12" Grid.Column="1" Content="Organize"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Path"/>
+        <TextBox Name="Path" Grid.Row="1" Grid.Column="3" MinWidth="350" Margin="5,0,0,0"/>
+
 
     </Grid>
 </UserControl>

@@ -44,8 +44,6 @@ namespace WPFUI_FOrganizer.Models
             {
                 _isSelected = value;
                 NotifyOfPropertyChange(() => IsSelected);
-                NotifyOfPropertyChange(() => WPFUI_FOrganizer.ViewModels.FileOrganizerViewModel.SelectedData);
-
             }
         }
     }
