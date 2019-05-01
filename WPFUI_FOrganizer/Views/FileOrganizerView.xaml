@@ -63,27 +63,19 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <CheckBox IsEnabled="{Binding Path=CanClick}" IsChecked="{Binding Path=IsSelected,Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
-                        <ScrollViewer  HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" IsEnabled="True" Margin="6">
-                            <StackPanel>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                                <CheckBox></CheckBox>
-                            </StackPanel>
+                        <CheckBox IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
+                        <TextBlock Text="Extensions:"/>
+                        <ScrollViewer Margin="5" MinHeight="80" MaxHeight="80" MinWidth="100" MaxWidth="100">
+                        <ListBox ItemsSource="{Binding Path=Extensions}" BorderThickness="1">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <CheckBox IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" Content="{Binding Path=Extension, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                         </ScrollViewer>
                     </StackPanel>
                 </DataTemplate>

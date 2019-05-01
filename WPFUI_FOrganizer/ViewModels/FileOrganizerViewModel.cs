@@ -19,6 +19,7 @@ namespace WPFUI_FOrganizer.ViewModels
         public string OrganizeEverything { get; } = "Organize everything";
         public string OrganizeDocuments { get; } = "Documents";
         public string OrganizePictures { get; } = "Pictures";
+
         public string OrganizeMusic { get; } = "Music";
         public string OrganizeVideos { get; } = "Videos";
         public string OrganizeExesAndShortcuts { get; } = "Executables";
@@ -48,21 +49,68 @@ namespace WPFUI_FOrganizer.ViewModels
 
 
         public ObservableCollection<OrganizerOptionsModel> Organizer { get; set; } = new ObservableCollection<OrganizerOptionsModel>();
-        public ObservableCollection<Extensions> DocumentsExt { get; set; }
-        public ObservableCollection<Extensions> PicturesExt { get; set; }
-        public ObservableCollection<Extensions> MusicExt { get; set; }
-        public ObservableCollection<Extensions> VideosExt { get; set; }
-        public ObservableCollection<Extensions> ExecutablesExt { get; set; }
+        public ObservableCollection<ExtensionsModel> DocumentsExt { get; set; } = new ObservableCollection<ExtensionsModel>();
+        public ObservableCollection<ExtensionsModel> PicturesExt { get; set; } = new ObservableCollection<ExtensionsModel>();
+
+        public ObservableCollection<ExtensionsModel> MusicExt { get; set; } = new ObservableCollection<ExtensionsModel>();
+        public ObservableCollection<ExtensionsModel> VideosExt { get; set; } = new ObservableCollection<ExtensionsModel>();
+        public ObservableCollection<ExtensionsModel> ExecutablesExt { get; set; } = new ObservableCollection<ExtensionsModel>();
 
         public FileOrganizerViewModel()
         {
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeDocuments, IsSelected = true}); //true to see if working
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizePictures });
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeMusic });
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeVideos });
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeExesAndShortcuts });
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeOther});
-            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeFolders });
+            InitExtensionsLists();
+            InitOrganizeOptions();
+            
+        }
+
+        public void InitExtensionsLists()
+        {
+            InitDocumentsExtensions();
+            InitPicturesExtensions();
+            InitMusicExtensions();
+            InitVideosExtensions();
+            InitExesExtensions();
+        }
+
+        public void InitDocumentsExtensions()
+        {
+            DocumentsExt.Add(new ExtensionsModel() { Extension = ".docx", IsSelected = true });
+            DocumentsExt.Add(new ExtensionsModel() { Extension = ".pdf", IsSelected = true });
+        }
+
+        public void InitPicturesExtensions()
+        {
+
+             PicturesExt.Add(new ExtensionsModel() { Extension = ".png", IsSelected = true });
+             PicturesExt.Add(new ExtensionsModel() { Extension = ".jpg", IsSelected = true });
+             PicturesExt.Add(new ExtensionsModel() { Extension = ".jpeg", IsSelected = true });
+        }
+
+        public void InitMusicExtensions()
+        {
+            MusicExt.Add(new ExtensionsModel() { Extension = ".mp3", IsSelected = true });
+        }
+
+        public void InitVideosExtensions()
+        {
+            VideosExt.Add(new ExtensionsModel() { Extension = ".mp4", IsSelected = true });
+            VideosExt.Add(new ExtensionsModel() { Extension = ".mov", IsSelected = true });
+        }
+
+        public void InitExesExtensions()
+        {
+            ExecutablesExt.Add(new ExtensionsModel() { Extension = ".exe", IsSelected = true });
+        }
+
+        public void InitOrganizeOptions()
+        {
+            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeDocuments, IsSelected = true, Extensions = DocumentsExt }); //true to see if working
+            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizePictures, Extensions = PicturesExt });
+            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeMusic, Extensions = MusicExt });
+            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeVideos, Extensions = VideosExt });
+            Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeExesAndShortcuts, Extensions = ExecutablesExt });
+           // Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeOther, Extensions = PicturesExt });
+            //Organizer.Add(new OrganizerOptionsModel() { OrganizeEverything = this.OrganizeEverything, OrganizeType = this.OrganizeFolders, Extensions = PicturesExt });
         }
 
         private IEnumerable<string> SelectedTypesEnumerable()

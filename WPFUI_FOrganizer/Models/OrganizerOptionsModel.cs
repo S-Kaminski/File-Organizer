@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -46,5 +47,8 @@ namespace WPFUI_FOrganizer.Models
                 NotifyOfPropertyChange(() => IsSelected);
             }
         }
+
+        public ObservableCollection<ExtensionsModel> Extensions { get; set; }
+
     }
 }
