@@ -21,7 +21,7 @@ namespace WPFUI_FOrganizer.ViewModels
         public string OrganizePictures { get; } = "Pictures";
         public string OrganizeMusic { get; } = "Music";
         public string OrganizeVideos { get; } = "Videos";
-        public string OrganizeExesAndShortcuts { get; } = "Executables and Shortcuts";
+        public string OrganizeExesAndShortcuts { get; } = "Executables";
         public string OrganizeOther { get; } = "Other";
         public string OrganizeFolders { get; } = "Folders";
 
@@ -48,6 +48,11 @@ namespace WPFUI_FOrganizer.ViewModels
 
 
         public ObservableCollection<OrganizerOptionsModel> Organizer { get; set; } = new ObservableCollection<OrganizerOptionsModel>();
+        public ObservableCollection<Extensions> DocumentsExt { get; set; }
+        public ObservableCollection<Extensions> PicturesExt { get; set; }
+        public ObservableCollection<Extensions> MusicExt { get; set; }
+        public ObservableCollection<Extensions> VideosExt { get; set; }
+        public ObservableCollection<Extensions> ExecutablesExt { get; set; }
 
         public FileOrganizerViewModel()
         {

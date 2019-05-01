@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Extensions.cs" />
     <Compile Include="Models\OrganizerOptionsModel.cs" />
     <Compile Include="ViewModels\FileOrganizerViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

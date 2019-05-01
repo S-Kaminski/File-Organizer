@@ -36,21 +36,64 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <CheckBox Content="{Binding Path=OrganizeEverything, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="14"/>
-        <TextBlock Text="Organize selected:" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Path"/>
+            <TextBox Grid.Row="0" Grid.Column="1"  Name="Path" MinWidth="350" Margin="5,0,0,0"/>
+        </Grid>
+        <CheckBox Content="{Binding Path=OrganizeEverything, Mode=OneWay}" Grid.Row="2" Grid.Column="1" FontSize="14"/>
+        <TextBlock Text="Organize selected:" Grid.Row="3" Grid.Column="1" Margin="10,0,0,0"/>
 
         <!-- ChceckBoxes with Organizating Types -->
+
         <ListBox ItemsSource="{Binding Path=Organizer}" Grid.Row="10" Grid.Column="1" BorderThickness="0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <CheckBox IsEnabled="{Binding Path=CanClick}" IsChecked="{Binding Path=IsSelected,Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
+                    <StackPanel>
+                        <CheckBox IsEnabled="{Binding Path=CanClick}" IsChecked="{Binding Path=IsSelected,Mode=TwoWay}" Content="{Binding Path=OrganizeType, Mode=OneWay}" Margin="10,0,0,0" FontSize="14"/>
+                        <ScrollViewer  HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" IsEnabled="True" Margin="6">
+                            <StackPanel>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                                <CheckBox></CheckBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox Name="SelectedTypes" Grid.Row="11" Grid.Column="1" />
-        <Button Name="Organize" Grid.Row="12" Grid.Column="1" Content="Organize"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="Path"/>
-        <TextBox Name="Path" Grid.Row="1" Grid.Column="3" MinWidth="350" Margin="5,0,0,0"/>
+
+        <TextBox Name="SelectedTypes" Grid.Row="12" Grid.Column="1" />
+        <Button Name="Organize" Grid.Row="13" Grid.Column="1" Content="Organize"/>
+
+        
 
 
     </Grid>
