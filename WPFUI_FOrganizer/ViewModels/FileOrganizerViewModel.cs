@@ -118,15 +118,34 @@ namespace WPFUI_FOrganizer.ViewModels
             return Organizer.Where(d => d.IsSelected).Select(d => d.OrganizeType);
         }
 
+        private IEnumerable<IEnumerable<ExtensionsModel>> SelectedExtensionsEnumerable()
+        {
+            return Organizer.Where(t => t.IsSelected).Select(e => e.Extensions);
+        }
+
+
         public void Organize(string path)
         {
             path = Path;
             string types = "";
             IEnumerable<string> result = SelectedTypesEnumerable();
+            IEnumerable<IEnumerable<ExtensionsModel>> exte = SelectedExtensionsEnumerable();
+            string extensionz = "";
+            foreach (var ext in exte)
+            {
+                var ex = ext.Where(d => d.IsSelected).Select(d => d.Extension);
+                foreach (var e in ex)
+                {
+                    extensionz += $"{e} ";
+                }
+
+            }
             foreach (var res in result)
             {
                 types += $"{ res } {Environment.NewLine}";
+                
             }
+            types += $"Selected extensions: {Environment.NewLine}{ extensionz }";
             SelectedTypes = types;
         }
 
